@@ -1,0 +1,104 @@
+$bg: #161616;
+$bo: #161616;
+$fg: #f2f2f2;
+$fgalt: #707070;
+
+.window {
+	background-color: $bg;
+	font-family: FiraCode Nerd Font;
+	border-width: 3px;
+	border-style: solid;
+	border-color: $bo;
+}
+
+.face {
+	background-size: 200px;
+	min-height: 200px;
+	min-width: 200px;
+	margin: 50px 0px 0px 0px;
+	border-radius: 100%;
+}
+
+.fullname {
+	color: $fg;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.username {
+	color: $fgalt;
+	font-size: 22px;
+	font-weight: bold;
+	margin: -15px 0px 50px 0px;
+}
+
+.time {
+	color: $fg;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.greeting {
+	color: $fg;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.volume {
+	padding: 25px 0px 25px 0px;
+
+	slider {
+		all: unset;
+	}
+
+	scale trough {
+		all: unset;
+		background-color: $fgalt;
+		border-radius: 50px;
+		min-width: 20px;
+		min-height: 530px;
+
+		highlight {
+			all: unset;
+			background-color: $fg;
+			border-radius: 50px;
+		}
+	}
+}
+
+.brightness {
+	padding: 25px 0px 25px 0px;
+
+	slider {
+		all: unset;
+	}
+
+	scale trough {
+		all: unset;
+		background-color: $fgalt;
+		border-radius: 50px;
+		min-width: 20px;
+		min-height: 530px;
+
+		highlight {
+			all: unset;
+			background-color: $fg;
+			border-radius: 50px;
+		}
+	}
+}
+
+.labelbrightness {
+	font-size: 20px;
+	margin-right: 5px;
+}
+
+.labelvolume {
+	font-size: 20px;
+	margin-right: 0px;
+}
+
+.keybindtext {
+	all: unset;
+	font-size: 20px;
+}

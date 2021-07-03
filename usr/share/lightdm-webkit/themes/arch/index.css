@@ -1,0 +1,20 @@
+body {
+    background-size: cover;
+    background-color: #161616;
+    color: #ededed;
+    cursor: none !important;
+}
+
+#input {
+    color: #ededed;
+    background-color: #16161600;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-family: "FiraCode", monospace;
+    font-size: 20px;
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

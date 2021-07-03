@@ -1,0 +1,160 @@
+#
+# custom hotkeys
+#
+
+# enable/disable tray
+alt + t
+	sh $HOME/.config/polybar/tray.sh
+
+# emoticons menu
+alt + e
+	sh $HOME/.config/bin/emoticons.sh
+
+#
+# volume controls
+#
+
+XF86AudioMute
+	sh $HOME/.config/bin/volume.sh mute
+XF86AudioRaiseVolume 
+	sh $HOME/.config/bin/volume.sh up
+XF86AudioLowerVolume
+	sh $HOME/.config/bin/volume.sh down
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle && notify-send -i mic-off "Microphone Toggled"
+
+#
+# brightness controls
+#
+
+XF86MonBrightnessUp
+	sh $HOME/.config/bin/bright.sh up
+XF86MonBrightnessDown
+	sh $HOME/.config/bin/bright.sh down
+
+#
+# start programs
+#
+
+alt + Delete
+	maim -u $HOME/Pictures/Screenshots/$(date +%F-%H%M%S)_maim.png && notify-send -i image-missing "Screenshot Taken" "Saved to ~/Pictures/Screenshots"
+
+alt + shift + Delete
+	maim -s -u $HOME/Pictures/Screenshots/$(date +%F-%H%M%S)_maim.png && notify-send -i image-missing "Screenshot Taken" "Saved to ~/Pictures/Screenshots"
+alt + z
+	eww close profile && eww close greeting && eww close time && eww close volume && eww close brightness || eww open-many profile greeting time volume brightness
+alt + k
+	eww close keybinds || eww open keybinds
+
+# alt + shift + button3
+# 	jgmenu_run
+
+#
+# power menu
+#
+
+alt + 0
+	sh $HOME/.config/bin/powermenu
+
+# alt + shift + s
+# 	$HOME/.config/bin/notify-send.sh "Screen" "Shutting down in 3 seconds..." --replace=111 && sleep 1 && $HOME/.config/bin/notify-send.sh "Screen" "Shutting down in 2 seconds..." --replace=111 && sleep 1 && $HOME/.config/bin/notify-send.sh "Screen" "Shutting down in 1 second..." --replace=111 && sleep 1 && xset dpms force off
+
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+alt + {_,shift +} Return
+	alacritty
+
+# program launcher
+alt + d
+	sh $HOME/.config/bin/bmenu
+
+# make sxhkd reload its configuration files:
+alt + Escape
+	pkill -USR1 -x sxhkd && notify-send -i input-keyboard "sxhkd" "Reloaded Config"
+
+#
+# bspwm hotkeys
+#
+
+# pseudo-fullscreen
+# alt + p
+# 	{bspc config top_padding 0 && polybar-msg cmd hide,bspc config top_padding 43 && polybar-msg cmd show}
+
+# quit/restart bspwm
+alt + shift + r
+	bspc wm -r && notify-send "bspwm" "Restarting bspwm"
+
+# close and kill
+# alt + {_,shift + }q
+#	bspc node -{c,k}
+
+# close and kill
+alt + shift + q
+	bspc node -c
+
+# fullscreen
+alt + f
+	bspc node -t ~fullscreen
+
+#
+# state/flags
+#
+
+# set the window state
+# super + {t,shift + t,s,f}
+# 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# switch between tiling and floating
+alt + shift + space
+	bspc node -t ~floating
+
+# set the node flags
+# super + ctrl + {m,x,y,z}
+#	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+alt + {_,shift +}{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the last desktop
+alt + b
+	bspc desktop -f last
+
+# move to desktop
+alt + {1-6}
+	bspc desktop -f '^{1-6}'
+
+# send to desktop
+alt + ctrl + {1-6}
+	bspc node -d '^{1-6}'
+
+# send to desktop and focus
+alt + shift + {1-6}
+	bspc node -d '^{1-6}' --follow
+
+#
+# preselect
+#
+
+# preselect the direction
+# super + ctrl + {h,j,k,l}
+# 	bspc node -p {west,south,north,east}
+
+# tile vertically or horizontally
+# alt + {v,h}
+# 	bspc node -p {south,east}
+
+# cancel the preselection for the focused node
+# super + ctrl + space
+# 	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+# alt + ctrl + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel

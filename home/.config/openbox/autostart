@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+
+# Stop other wm's from screwing up
+[ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+    id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+    id=${id##* }
+    wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |
+      grep '^_NET_WM_NAME' | cut -d\" -f 2)
+  }
+
+if [[ $wm = "Openbox" ]]; then
+nitrogen --restore &
+picom &
+$HOME/.config/polybar/launch.sh &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+nm-applet &
+blueberry-tray &
+xsettings & disown
+eww daemon &
+# killall zentile &
+# sleep 0.5 && zentile & disown
+fi

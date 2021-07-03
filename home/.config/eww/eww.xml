@@ -1,0 +1,106 @@
+<eww>
+	<variables>
+		<!--profile-->
+		<var name="IMAGE">image.png</var>
+		<var name="NAME">Stardust-kyun</var>
+		<script-var name="USERNAME">echo @`whoami`</script-var>
+		<!--time-->
+		<script-var name="TIME" interval="1s">date +"%a %d/%m %I:%M %p"</script-var>
+		<!--greeting-->
+		<script-var name="GREETING">echo Welcome to `hostname`</script-var>
+		<!--volume-->
+		<script-var name="VOLUME" interval="50ms">amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1</script-var>
+		<!--brightness-->
+		<script-var name="BRIGHT" interval="50ms">xbacklight | awk '{print int($1+0.5)}'</script-var>
+		<!--keybinds-->
+		<script-var name="KEYBIND">cat keybinds.txt</script-var>
+	</variables>
+
+	<definitions>
+		<!--profile-->
+		<def name="profile">
+			<box class="window" orientation="v" spacing="35" space-evenly="false" vexpand="false" hexpand="false">
+				<box style="background-image: url('{{IMAGE}}');" class="face" halign="center"/>
+				<label class="fullname" halign="center" wrap="true" limit-width="25" text="{{NAME}}"/>
+				<label class="username" halign="center" wrap="true" limit-width="25" text="{{USERNAME}}"/>
+			</box>
+		</def>
+		<!--time-->
+		<def name="time">
+			<box class="window">
+				<label class="time" halign="center" text="{{TIME}}"/>
+			</box>
+		</def>
+		<!--greeting-->
+		<def name="greeting">
+			<box class="window">
+				<label class="greeting" halign="center" text="{{GREETING}}"/>
+			</box>
+		</def>
+		<!--volume-->
+		<def name="volume">
+			<box class="window" orientation="v" space-evenly="false">
+				<scale orientation="v" halign="center" flipped="true" active="false" value="{{VOLUME}}"/>
+				<label class="labelvolume" text="墳"/>
+			</box>
+		</def>
+		<!--brightness-->
+		<def name="brightness">
+			<box class="window" orientation="v" space-evenly="false">
+				<scale orientation="v" halign="center" flipped="true" active="false" value="{{BRIGHT}}"/>	
+				<label class="labelbrightness" text=""/>
+			</box>
+		</def>
+		<!--keybinds-->
+		<def name="keybinds">
+			<box class="window">
+				<label class="keybindtext" text="{{KEYBIND}}"/>
+			</box>
+		</def>
+	</definitions>
+
+	<windows>
+		<!--profile-->
+		<window name="profile" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" width="305" height="400"/>
+			<widget>
+				<profile/>
+			</widget>
+		</window>
+		<!--time-->
+		<window name="time" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" y="275" width="305" height="90"/>
+			<widget>
+				<time/>
+			</widget>
+		</window>
+		<!--greeting-->
+		<window name="greeting" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" y="-275" width="305" height="90"/>
+			<widget>
+				<greeting/>
+			</widget>
+		</window>
+		<!--volume-->
+		<window name="volume" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" x="215" width="90" height="640"/>
+			<widget>
+				<volume/>
+			</widget>
+		</window>
+		<!--brightness-->
+		<window name="brightness" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" x="-215" width="90" height="640"/>
+			<widget>
+				<brightness/>
+			</widget>
+		</window>
+		<!--keybinds-->
+		<window name="keybinds" stacking="fg" focusable="false" screen="0">
+			<geometry anchor="center" width="1344" height="756"/>
+			<widget>
+				<keybinds/>
+			</widget>
+		</window>
+	</windows>
+</eww>

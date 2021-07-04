@@ -1,5 +1,7 @@
 # Hello! Thank you for checking out my dotfiles.
 
+## **DISCLAIMER: THIS REPO IS NOT COMPLETE. CONTACT ME IF YOU HAVE ISSUES.**
+
 ## Overview
 
 These files work together to achieve a unified desktop that can be changed on the fly. **Changing and/or removing these files may break it. Make sure you know what you're doing before messing with them.**
@@ -9,6 +11,16 @@ This project aims to provide several cohesive desktops that can be changed on th
 ## Pictures
 
 ![Desktops](desktops.png "Desktops")
+
+| Arch Dark				| Arch Light				|
+| :---:					| :---:					|
+| ![Dark](dark.png "Dark")		| ![Light](light.png "Light")		|
+| Arch Dark Alt				| Arch Light Alt			|
+| :---:					| :---:					|
+| ![DarkAlt](darkalt.png "DarkAlt")	| ![LightAlt](lightalt.png "LightAlt")	|
+| Cabin					| Noel Red				|
+| :---:					| :---:					|
+| ![Cabin](cabin.png "Cabin")		| ![NoelRed](noelred.png "NoelRed")	|
 
 ##  FAQ
 
@@ -52,3 +64,7 @@ There currently isn't an installation script for my dotfiles, so follow this:
 - After copying `usr/share/icons`, run `tar -xzvf filename.tar.gz` to extract.
 
 If you have any issues, feel free to contact me. You can reach out to me on discord: @Stardust-kyun#5994.
+
+## Quick Start
+
+If this is your first time using my dotfiles, I would recommend starting by using `Alt+k` to bring up the keybindings menu. This will display most if not all of the keybindings used, as well as keybindings specific to certain window managers. If you're using Openbox, you can also use the right click menu to launch some applications instead of Dmenu.

@@ -23,12 +23,15 @@ This project aims to provide several cohesive desktops that can be changed on th
 ##  FAQ
 
 > Isn't this like [Archcraft](https://archcraft.io/)?
+
 Yes! I started this project in December of 2020, but didn't know about Archcraft until about I was about half a year in. This project is incredibly similar to Archcraft, even using the same methods to achieve a similar goal, with one key difference: this project has the *same* desktops, even across window managers. Archcraft has seperate configurations and desktops for its window managers. That being said, I recommend Archcraft to anyone looking for a more polished experience than what this project currently provides.
 
 > Isn't this like [Flavours](https://github.com/Misterio77/flavours)?
+
 No. The purpose of Flavours is to quickly and easily change your *existing desktop's* color scheme. The purpose of this project is to change your *desktop* with existing configurations- that means changing your bar, gtk theme, window decorations, and more to something preset.
 
 > What are your plans for this?
+
 My current plans for this project are to create a few more desktops, make an installation script to make it easier for anyone to use, create some tools to make creating a new desktop easier, and eventually turn it into its own distrobution. It's unlikely that any of these will be accomplished in the near future, but there will be a new update once at least a few of these are completed.
 
 ## Installation

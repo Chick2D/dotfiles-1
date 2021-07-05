@@ -49,9 +49,11 @@ betterlockscreen discord-canary zentile nerd-fonts-fira-code nerd-fonts-iosevka
 ```
 
 From source:
-```
-[openbox](https://github.com/Stardust-kyun/openbox) [dmenu](https://github.com/Stardust-kyun/dmenu) [powercord](https://powercord.dev/installation)
-```
+
+- [openbox](https://github.com/Stardust-kyun/openbox) 
+- [dmenu](https://github.com/Stardust-kyun/dmenu) 
+- [powercord](https://powercord.dev/installation)
+
 
 There currently isn't an installation script for my dotfiles, so follow this:
 
